@@ -95,9 +95,9 @@ sidebarPanel(
 #What are the details of the loan you are asking for, the default value in the system, what is the minimum you can ask and what is the step of increase/decrease button?
 numericInput("principal", "How much do you need? ($)", 5000, min = 0, step = 200),
 hr(),
-numericInput("interest", "Put the annual interest rate (%)", 2, min = 0, max = 100, step = 0.01),
+numericInput("interest", "Put the annual interest rate (%)", 2, min = 0, max = 100, step = 0.05),
 hr(),
-sliderInput("length", "How many years do you need to repay it?",
+sliderInput("length", "How many years do you want to repay it (10 years max)?",
 min = 0,
 max = 10,
 value = 5,
