@@ -105,7 +105,7 @@ step = 1),
 hr(),
             
 #Give a graphic layout to the data table, change to "FALSE" if not desired
-checkboxInput("plot", "Display plot?", TRUE),),
+checkboxInput("plot", "Do you need graphical display?", FALSE),),
         
 
 
