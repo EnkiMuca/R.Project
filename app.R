@@ -86,10 +86,10 @@ text-indent: 30px;">This app will allow you to take a student loan in just a cli
 calculate each payment you will need to do in the future. There will be a graphic layout where you will see the composure of your monthly pamynet between the principal
 and the interest and below that, a table will give you the full written details of each payment.</p>'),
 
-hr(),
-hr(),
-hr(),
-hr(),
+br(),
+br(),
+br(),
+br(),
 
 
 
