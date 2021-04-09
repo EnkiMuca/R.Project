@@ -92,27 +92,7 @@ br(),
 br(),
 
 
-    
-#Main block where the output of the above choices will be displayed
-mainPanel(
-            
-#First thing that will be displayed in the mainPanel. It will get be generated through the renderUI function in the server part.
-uiOutput("first"),
-br(),
-         
-#Third element that will be displayed in the mainPanel, but this time is a table It will get be generated through the renderDataTable function in the server part.
-DT::dataTableOutput("third"),
-br(),
-    
-#Second element that will be displayed in the mainPanel, but this time is a plot. It will get be generated through the renderPlot function in the server part.
-plotOutput("second"),
-br(),
-            
-
-            
-#A relatively small header to put my name and the link to the university email
-h3(tags$a(href = "enki.muca@studenti.unimi.it", "Enki Muca")),
-)))
+   
 
 #Creating a sidebar block, similar to a container in HTML
 sidebarLayout(
@@ -135,7 +115,26 @@ checkboxInput("plot", "Do you need graphical display?", TRUE),),
         
 
 
+#Main block where the output of the above choices will be displayed
+mainPanel(
+            
+#First thing that will be displayed in the mainPanel. It will get be generated through the renderUI function in the server part.
+uiOutput("first"),
+br(),
+         
+#Third element that will be displayed in the mainPanel, but this time is a table It will get be generated through the renderDataTable function in the server part.
+DT::dataTableOutput("third"),
+br(),
+    
+#Second element that will be displayed in the mainPanel, but this time is a plot. It will get be generated through the renderPlot function in the server part.
+plotOutput("second"),
+br(),
+            
 
+            
+#A relatively small header to put my name and the link to the university email
+h3(tags$a(href = "enki.muca@studenti.unimi.it", "Enki Muca")),
+)))
 
 
 ###################################################################################
