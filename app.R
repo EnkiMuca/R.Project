@@ -36,11 +36,9 @@ ui <- fluidPage(
     
 tags$head(
 tags$style(HTML("@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
-
 body {
 color: black;
 }
-
 h2 {
 font-family: 'Yusei Magic', sans-serif;
 padding: 40px;
@@ -72,7 +70,6 @@ font-size: 20px;
 {
 color: #474747;
 }
-
 "))),
     
     
@@ -92,7 +89,6 @@ br(),
 br(),
 
 
-   
 
 #Creating a sidebar block, similar to a container in HTML
 sidebarLayout(
