@@ -19,6 +19,8 @@ In the sidebar panel, there is a checkBox option if you will also like to see a 
 
 # Student Details
 Name : Enki
+
 Surname : Muca
+
 Matriculation : 964653
 
