@@ -3,7 +3,7 @@ School project in R Programming (Shiny App)
 
 This app works as a simple Student's loan calculator with sensitive interaction. This means that the idea is to work without a "Submit" button and the data to be automatically updated upon changing the features that the user inputs in the sidebar panel.
 
-The main focus is on calculating loans with small numbers, but this is chosen just for the sake of simplicity. The code is easily adjustable to have longer years and all other features that the user gives.
+The main focus is on calculating loans with small numbers, but this is chosen just for the sake of simplicity. The code is easily adjustable to have longer years and all other features that the user gives. Furthermore, the chosen currency is ($), but it can be changed with other currency very easily.
 
 I have put some basic CSS code in the project, just to give it some better visual influence.
 
