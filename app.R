@@ -85,8 +85,6 @@ and the interest and below that, a table will give you the full written details 
 
 br(),
 br(),
-br(),
-br(),
 
 
 
