@@ -1,9 +1,9 @@
 library(shiny)
 
-#Focussed on tools for working with data frames
+#Focussed on tools for working with data frames,suppressing conflicts behaviour between packages so it doesn't give warning
 library(dplyr, warn.conflicts = FALSE)
 
-#Provides an R interface to the JavaScript library DataTables
+#Provides an R interface to the JavaScript library DataTables, suppressing conflicts behaviour between packages so it doesn't give warning
 library(DT, warn.conflicts = FALSE)
 
 #A system for creating graphics, main focus on visualisation
@@ -164,6 +164,7 @@ M <- P * J / (1 - (1 + J)^(-N))
 monthPay <<- M
         
        
+#This Code Snippet inf the following rows is a standart sequence, if you choose that your loan has amortization...
 #Calculate the amortization of the loan every month, if we decide to give a loan without amortization need to change the above line to "amortization = FALSE"
 if (amortization == TRUE) {
 Pt <- P # current principal or amount of the loan
@@ -174,8 +175,11 @@ C <- M - H # this is your monthly payment minus your monthly interest, so it is 
 Q <- Pt - C # this is the new balance of your principal of your loan
 Pt <- Q # sets P equal to Q and goes back to step 1. The loop continues until the value Q (and hence P) goes to zero
 currP <- c(currP, Pt)}
-
 monthP <- c(P, currP[1:(length(currP) - 1)]) - currP
+    
+#Now we start working on the table. It takes the calculations made above and puts them in a table format. 
+#It gives details about each month and year. When we get to month 12, the year=year+1.
+#We subtract the previous balance with the previous payment to find the actual balance.
 aDFmonth <<- data.frame(
 Month = 1:length(currP),
 Year = sort(rep(1:ceiling(N / 12), 12))[1:length(monthP)],
@@ -183,17 +187,15 @@ Balance = c(currP[1:(length(currP))]),
 Payment = monthP + c((monthPay - monthP)[1:(length(monthP))]),
 Principal = monthP,
 Interest = c((monthPay - monthP)[1:(length(monthP))]))
-
 aDFmonth <<- subset(aDFmonth, Year <= L * 12)
 aDFyear <- data.frame(
-  
 Amortization = tapply(aDFmonth$Balance, aDFmonth$Year, max),
 Annual_Payment = tapply(aDFmonth$Payment, aDFmonth$Year, sum),
 Annual_Principal = tapply(aDFmonth$Principal, aDFmonth$Year, sum),
 Annual_Interest = tapply(aDFmonth$Interest, aDFmonth$Year, sum),
 Year = as.factor(na.omit(unique(aDFmonth$Year))))
-aDFyear <<- aDFyear
-}
+aDFyear <<- aDFyear}
+    
     
 #Now we start to create the plot from the data we have obtained by analyzing the loan.
 if (plotData == TRUE) {
@@ -208,6 +210,7 @@ aDFyear2$Year <- as.factor(aDFyear2$Year)
 aDFyear2 <- melt(aDFyear2[, c("Interest", "Principal", "Year")], id.vars = "Year")
   
 #It describes how will the 1D plot look like. The statistical transformation to use on the data for this layer and the position adjustment to use for overlapping points on this layer.
+#It also designs the axes and the position of the legend.
 ggplot(aDFyear2, aes(x = Year, y = value, fill = variable)) +
 geom_bar(position = "fill", stat = "identity") +
 labs(y = "Payment") +
