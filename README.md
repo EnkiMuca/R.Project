@@ -17,7 +17,7 @@ When you open the app, you should go to the sidebar panel in the left side and f
 In the sidebar panel, there is a checkBox option if you will also like to see a graphical description of your yearly payments. Each bar is showed in 2 colors to tell the importance of interest and principal in each year of your loan. 
 
 
-#Student Details
+# Student Details
 Name : Enki
 Surname : Muca
 Matriculation : 964653
