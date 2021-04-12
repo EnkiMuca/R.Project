@@ -16,3 +16,9 @@ In the server part of the code, I have used some blocks taken from a couple of L
 When you open the app, you should go to the sidebar panel in the left side and fill the details of your loan. The system will immediately calculate how much money you will need to pay in each month. Below that, you will be shown a table which gives the full specifics of each monthly payment you will make. Furthermore, there are the options to "Copy, Print and Download (some formats)" the whole dataset so you can have it for your later usage as well.
 In the sidebar panel, there is a checkBox option if you will also like to see a graphical description of your yearly payments. Each bar is showed in 2 colors to tell the importance of interest and principal in each year of your loan. 
 
+
+#Student Details
+Name : Enki
+Surname : Muca
+Matriculation : 964653
+
