@@ -143,17 +143,6 @@ h3(tags$a(href = "enki.muca@studenti.unimi.it", "Enki Muca")),
 ###################################################################################
 
 
-#This Code Snippet in the six following rows is taken from a standart loan formula app, it turns the interest rate and other details into correct form to calculate the monthly payment.
-#It practically gives a logic to the server how should it generally work for all slider examples.
-
-server <- function(input, output) {
-loan <- function(P = 500000, I = 6, L = 30, amortization = TRUE, plotData = TRUE) {
-J <- I / (12 * 100)
-N <- 12 * L
-M <- P * J / (1 - (1 + J)^(-N))
-monthPay <<- M
-        
-       
 #############################################
 # J --> Monthly Interest Percentage         #
 #                                           #
@@ -164,6 +153,17 @@ monthPay <<- M
 #############################################
 
 
+#This Code Snippet in the following rows is taken from a standart loan formula app, it turns the interest rate and other details into correct form to calculate the monthly payment.
+#It practically gives a logic to the server how should it generally work for all slider examples.
+
+server <- function(input, output) {
+loan <- function(P = 500000, I = 6, L = 30, amortization = TRUE, plotData = TRUE) {
+J <- I / (12 * 100)
+N <- 12 * L
+M <- P * J / (1 - (1 + J)^(-N))
+monthPay <<- M
+        
+       
 #Calculate the amortization of the loan every month, if we decide to give a loan without amortization need to change the above line to "amortization = FALSE"
 if (amortization == TRUE) {
 Pt <- P # current principal or amount of the loan
@@ -192,9 +192,10 @@ Annual_Payment = tapply(aDFmonth$Payment, aDFmonth$Year, sum),
 Annual_Principal = tapply(aDFmonth$Principal, aDFmonth$Year, sum),
 Annual_Interest = tapply(aDFmonth$Interest, aDFmonth$Year, sum),
 Year = as.factor(na.omit(unique(aDFmonth$Year))))
-
 aDFyear <<- aDFyear
 }
+    
+#Now we start to create the plot from the data we have obtained by analyzing the loan.
 if (plotData == TRUE) {
 aDFyear2 <- aDFyear %>%
 rename(
@@ -205,7 +206,8 @@ Principal = Annual_Principal
 
 aDFyear2$Year <- as.factor(aDFyear2$Year)
 aDFyear2 <- melt(aDFyear2[, c("Interest", "Principal", "Year")], id.vars = "Year")
-            
+  
+#It describes how will the 1D plot look like. The statistical transformation to use on the data for this layer and the position adjustment to use for overlapping points on this layer.
 ggplot(aDFyear2, aes(x = Year, y = value, fill = variable)) +
 geom_bar(position = "fill", stat = "identity") +
 labs(y = "Payment") +
